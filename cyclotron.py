@@ -1,17 +1,17 @@
 def case_electron(particle, matrix_size):
-    matrix = ""
     first_line = "[" + particle + ", " + (matrix_size - 2) * (particle + ", ") + particle + "]\n"
     other_lines = "[1" + (matrix_size - 2) * (", 1") + ", " + particle + "]\n"
-    matrix += first_line + (matrix_size - 1) * other_lines
+    matrix = first_line + (matrix_size - 1) * other_lines
     return matrix
 
 
 def case_proton(particle, matrix_size):
-    matrix = ""
-    # first_line = "[, " + (matrix_size - 2) * ("e" + ", ") + "e]\n"
-    # other_lines = "[1" + (matrix_size - 2) * (", 1") + ", e]\n"
-    # matrix += first_line + (matrix_size - 1) * other_lines
-    return "[p, p, p, p]\n[p, 1, 1, p]\n[p, 1, p, p]\n[p, p, p, 1]\n"
+    first_line = "[" + particle + ", " + (matrix_size - 2) * (particle + ", ") + particle + "]\n"
+    middle_lines = "[" + particle + (matrix_size - 2) * (", 1") + ", " + particle + "]\n"
+    penultimate_line = "[" + particle + ", " + (matrix_size - 4) * "1, " + "1, " + particle + ", " +  particle + "]\n"
+    last_line = "[" + particle + ", " + (matrix_size - 2) * (particle + ", ") + "1]\n"
+    matrix = first_line + (matrix_size - 3) * middle_lines + penultimate_line + last_line
+    return matrix
 
 
 def case_neutron(particle, matrix_size):
@@ -34,4 +34,4 @@ def cyclotron(particle=None, matrix_size=4):
     return matrix
 
 
-print(cyclotron("e", 4))
+print(cyclotron("p", 4))
