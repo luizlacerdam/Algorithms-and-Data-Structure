@@ -1,9 +1,9 @@
 from cyclotron import cyclotron
 
 
-# def test_cyclotron_without_particles_4x4():
-#     no_particles = "[1, 1, 1, 1]\n[1, 1, 1, 1]\n[1, 1, 1, 1]\n[1, 1, 1, 1]\n"
-#     assert cyclotron(None, 4) == no_particles
+def test_cyclotron_without_particles_4x4():
+    no_particles = "[1, 1, 1, 1]\n[1, 1, 1, 1]\n[1, 1, 1, 1]\n[1, 1, 1, 1]\n"
+    assert cyclotron(None, 4) == no_particles
 
 
 def test_cyclotron_electron_particles_4x4():

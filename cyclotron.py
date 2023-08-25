@@ -15,23 +15,27 @@ def case_proton(particle, matrix_size):
 
 
 def case_neutron(particle, matrix_size):
-    return "[n, n, n, n]\n[1, 1, 1, 1]\n[1, 1, 1, 1]\n[1, 1, 1, 1]\n"
+    first_line = "[" + particle + ", " + (matrix_size - 2) * (particle + ", ") + particle + "]\n"
+    lines = "[1" + (matrix_size - 2) * (", 1") + ", " + "1]\n"
+    matrix = first_line + (matrix_size - 1) * lines
+    return matrix 
 
 
-def case_none():
-    return "[1, 1, 1, 1]\n[1, 1, 1, 1]\n[1, 1, 1, 1]\n[1, 1, 1, 1]\n"
-
-
-def cyclotron(particle=None, matrix_size=4):
-    matrix = ""
-    case = {
-        "e": case_electron(particle, matrix_size),
-        "p": case_proton(particle, matrix_size),
-        "n": case_neutron(particle, matrix_size),
-        None: case_none()
-    }
-    matrix += case[particle]
+def case_none(matrix_size):
+    lines = "[1" + (matrix_size - 2) * (", 1") + ", " + "1]\n"
+    matrix = lines + (matrix_size - 1) * lines
     return matrix
 
 
-print(cyclotron("p", 4))
+def cyclotron(particle, matrix_size=4):
+    if particle is None:
+        return case_none(matrix_size)
+    case = {
+        "e": case_electron(particle, matrix_size),
+        "p": case_proton(particle, matrix_size),
+        "n": case_neutron(particle, matrix_size)
+    }
+    return case[particle]
+
+
+print(cyclotron(None, 6))
