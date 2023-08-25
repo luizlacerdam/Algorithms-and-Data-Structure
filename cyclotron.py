@@ -1,4 +1,6 @@
-def cyclotron(particle, matrix):
-    return "[e, e, e, e]\n[1, 1, 1, e]\n[1, 1, 1, e]\n[1, 1, 1, e]\n"
+def cyclotron(particle, matrix_size):
+    matrix = ""
+    return matrix
 
 
+print(cyclotron("e", 4))
