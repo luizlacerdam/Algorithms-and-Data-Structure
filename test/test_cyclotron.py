@@ -17,8 +17,9 @@ def test_cyclotron_proton_particles_4x4():
 
 
 def test_cyclotron_proton_particles_6x6():
-    proton_def = "[p, p, p, p, p, p]\n[p, 1, 1, 1, 1, p]\n[p, 1, 1, 1, 1, p]\n[p, 1, 1, 1, 1, p]\n[p, 1, 1, 1, p, p]\n[p, p, p, p, p, 1]\n"
-    assert cyclotron("p", 6) == proton_def
+    proton_d = "[p, p, p, p, p, p]\n[p, 1, 1, 1, 1, p]\n[p, 1, 1, 1, 1, p]\n"
+    proton_d += "[p, 1, 1, 1, 1, p]\n[p, 1, 1, 1, p, p]\n[p, p, p, p, p, 1]\n"
+    assert cyclotron("p", 6) == proton_d
 
 
 def test_cyclotron_neutron_particles_4x4():
